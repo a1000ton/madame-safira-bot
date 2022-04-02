@@ -1,6 +1,7 @@
 import os
 import discord
 from random import randrange
+from api import keep_alive
 
 client = discord.Client()
 bot_key = os.environ['bot_key']
@@ -25,8 +26,11 @@ async def on_message(message):
 
     if card == 'fool':
       await message.channel.send("kkkkk.... é o troxa....")
+    elif message.author.name == "Rodrigo Harkuna":
+      await message.channel.send("Harkuna..... inevitável....")
     else:
       await message.channel.send("putz.... é morte então....")
+      
 
 def check_card():
   num = randrange(10)
@@ -35,4 +39,5 @@ def check_card():
   else:
     return "death"
 
+keep_alive()
 client.run(bot_key)
